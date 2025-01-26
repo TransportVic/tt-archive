@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "NetworkSans";
+ /* Regular */
+  font-display: fallback;
+  src: url(/assets/59c049487fbd236090447d987f830221b8475483.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "NetworkSans";
+ /* Medium */
+  font-display: fallback;
+  src: url(/assets/38e8ba5b3d99fa4c5649aa7145323ed3ad12f95d.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "NetworkSans";
+ /* Bold */
+  font-display: fallback;
+  src: url(/assets/4610e274a6e3e9b4dc7c0091a10c80b16ae82130.ttf);
+  font-weight: 700;
+}
+
+* {
+  font-family: "NetworkSans";
+}
+
+body,html {
+  background: #fff;
+}
+
+table {
+  table-layout: fixed;
+}
+
+tr:nth-child(even) {
+  background: #f4f4f4;
+}
+
+th,td {
+  padding: 0.1em 0.5em;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+  background: #eee;
+  border-bottom: 1px solid #aaa;
+}
+
+#list {
+  border: 1px solid #aaa;
+  width: 100%;
+}
+
+a {
+  color: #a33;
+}
+
+a:hover {
+  color: #e33;
+}
+
+.link {
+  white-space: nowrap;
+  text-overflow: '>';
+  overflow: hidden;
+}
