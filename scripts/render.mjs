@@ -3,7 +3,6 @@ import path from 'path'
 import url from 'url'
 import { exec } from 'child_process'
 import checksumFile, { hashName } from './hash.mjs'
-import https from 'https'
 
 const __filename = url.fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -18,39 +17,6 @@ let buildNumber = await new Promise(resolve => {
     resolve(stdout.toString().trim())
   })
 })
-let buildComment = await new Promise(resolve => {
-  exec('git log -1 --oneline --pretty=%B', {
-    cwd: __dirname
-  }, (err, stdout, stderr) => {
-    resolve(stdout.toString().trim())
-  })
-})
-
-function sendDiscordMessage(text) {
-  if (!process.env['DISCORD_WEBHOOK']) return
-  return new Promise(resolve => {
-    let urlData = new url.URL(process.env['DISCORD_WEBHOOK'])
-
-    let data = JSON.stringify({
-      content: text
-    })
-
-    let req = https.request({
-      host: urlData.host,
-      port: urlData.port || 443,
-      path: urlData.pathname,
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': data.length
-      },
-      timeout: 5 * 1000
-    }, res => resolve())
-
-    req.write(data)
-    req.end()
-  })
-}
 
 const publicPath = path.join(__dirname, '..', 'public')
 const assetsPath = path.join(publicPath, 'assets')
