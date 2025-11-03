@@ -129,5 +129,6 @@ const staticAssetPath = path.join(__dirname, 'assets')
 
 await fs.copyFile(path.join(staticAssetPath, '404.html'), path.join(publicPath, '404.html'))
 await fs.copyFile(path.join(staticAssetPath, 'style.css'), path.join(publicPath, 'style.css'))
+await fs.copyFile(path.join(staticAssetPath, 'robots.txt'), path.join(publicPath, 'robots.txt'))
 
 process.exit(0)
